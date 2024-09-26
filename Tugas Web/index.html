@@ -1,1 +1,93 @@
+<!doctype html>
 
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Tugas Web</title>
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <h1><b>My Website</b></h1>
+        <h2>A responsive Website created by me. </h2>
+        <div class="container-navbar">
+            <table style="width:10%">
+                <tr class="tr-navbar">
+                  <td class="td-navbar">Home</td>
+                  <td class="td-navbar1">
+                    <a href="link.html" class="a-navbar">Link</td>
+                  <td class="td-navbar1">
+                    <a href="link2.html" class="a-navbar">Link</td>
+                </tr>
+              </table>
+        </div>
+
+        <div class="row">
+          <div class="left-column">
+              <div class="card">
+                  <h3><b>About Me</b></h3>
+                  <p><b>Photo of me:</b></p>
+                  <div class="fakeimg" style="height:220px;">Image</div>
+                  <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+                  <p><b>More Text</b></p>
+                  <p>Lorem ipsum dolor sit ame.</p>
+                  <div class="fakeimg" style="height:20px;">Image</div><br>
+                  <div class="fakeimg" style="height:20px;">Image</div><br>
+                  <div class="fakeimg" style="height:20px;">Image</div>
+              </div>
+          </div>
+  
+          <div class="right-column">
+              <div class="card">
+                  <h3>TITLE HEADING</h3>
+                  <p><b>Title description, Dec 7, 2017</b></p>
+                  <div class="fakeimg" style="height:200px;">Image</div>
+                  <p>Some text..</p>
+                  <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+              <div class="card">
+                  <h3>TITLE HEADING</h3>
+                  <p><b>Title description, Sep 2, 2017</b></p>
+                  <div class="fakeimg" style="height:200px;">Image</div>
+                  <p1>Some text..</p1>
+                  <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>  
+          </div>
+      </div>
+  
+      <div class="footer">
+          <h3>Footer</h3> 
+
+          <script>
+            function proses() {
+              var tugas = document.getElementById("tugas").value;
+              var quiz = document.getElementById("quiz").value;
+              var uts = document.getElementById("uts").value;
+              var uas = document.getElementById("uas").value;
+            
+              var nilaiAkhir = (0.2 * parseFloat(tugas)) + (0.2 * parseFloat(quiz)) + (0.3 * parseFloat(uts)) + (0.3 * parseFloat(uas));
+            
+              document.getElementById("nilai").value = nilaiAkhir.toFixed(2);
+            
+              var grade;
+              if (nilaiAkhir >= 85) {
+                grade = "A";
+              } else if (nilaiAkhir >= 70) {
+                grade = "B";
+              } else if (nilaiAkhir >= 60) {
+                grade = "C";
+              } else if (nilaiAkhir >= 40) {
+                grade = "D";
+              } else {
+                grade = "E";
+              }
+            
+              document.getElementById("grade").value = grade;
+            }
+            </script>
+
+</html>
