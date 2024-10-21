@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Tugas Document Object Model</h2>
+<h3>BIODATA DIRI</h3>
+<p>Isi last name dengan nama apapun, akan masuk ke dalam biodata saya</p>
+
+<style>
+  body {
+font-family: 'Times New Roman';
+background-color: rgb(195, 212, 221);
+}
+ 
+ h2{
+  color: rgb(59, 48, 75);
+ }
+</style>
+
+<form id="frm1" action="file:///C:/Users/RAFAEL/OneDrive/Desktop/website/index.html">
+  First name: <input type="text" name="fname" size="20" value="Mochamad Rafael" required placeholder="First Name"><br>
+  Last name: <input type="text" name="lname" size="20" required placeholder="Last Name" ><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<script>
+const x = document.forms["frm1"];
+let text = "";
+for (let i = 0; i < x.length ;i++) {
+  text += x.elements[i].value + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<br>
+<br>
+
+<h2>Berikut adalah foto dari Pelukis favourite saya</h2>
+<a href="https://www.britannica.com/biography/Francisco-Goya">Francisco De Goya</a>
+<br></br>
+
+<img id="image" width="160" height="200">
+<br></br>
+<a href="https://www.wikiart.org/en/francisco-goya">Berikut adalah lukisan-lukisan Francisco De Goya</a>
+
+<script>
+document.getElementById("image").src = "Autorretrato_de_Goya_(1795).jpg";
+</script>
+
+</body>
+</html>
+
+<br></br>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to display the date.</p>
+<button onclick="displayDate()">What time is it?</button>
+
+<script>
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+</script>
+
+<p id="demo"></p>
+
+</body>
+</html> 
+
+<br></br>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
+
+
+<form name="myForm" action="https://www.britannica.com/biography/Francisco-Goya" onsubmit="return validateForm()" method="post">
+  Name: <input type="text" name="fname"  required>
+  <input type="submit" value="Submit">
+</form>
+
+<p>If you click submit, without filling out the text field,
+your browser will display an error message.</p>
+<p>input your name and it will go in website you type</p>
+
+</body>
+</html>
+
+<br></br>
+
+
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  background: olivedrab;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position:absolute;
+  background-color: rgb(5, 5, 5);
+}
+</style>
+<body>
+
+<p><button onclick="myMove()">Coba Pencet</button></p> 
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+<script>
+function myMove() {
+  let id = null;
+  const elem = document.getElementById("animate");   
+  let pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 300) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.left = pos + "px"; 
+      elem.style.right = pos + "px"; 
+  
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+
+<br></br>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Cara buat Text dalam Text</h1>
+<h2 onclick="this.innerHTML='Hi, i hope you have an amazing day!'">Pencet Coba<<<</h2>
+
+</body>
+</html>
