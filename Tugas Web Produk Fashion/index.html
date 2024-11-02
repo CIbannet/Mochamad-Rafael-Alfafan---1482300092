@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Rafael Fashion</title>
+</head>
+<body>
+    <div class="container">
+        <h1>RAFA STORE</h1>
+
+        <form id="productForm">
+            <label for="productName">Nama Produk:</label>
+            <input type="text" id="productName" name="productName" required>
+            
+            <label for="productPrice">Jumlah Produk:</label>
+            <input type="number" id="productPrice" name="productPrice" required>
+            
+            <button type="submit">Tambah Produk</button>
+        </form>
+
+        <h2>Daftar Produk</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Produk</th>
+                    <th>Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Our Legacy Boots</td>
+                    <td>Rp 9.000.000</td>
+                </tr>
+                <tr>
+                    <td>Trousers</td>
+                    <td>Rp 450.000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="product-section">
+            <h2>Trousers</h2>
+            <img src="Trousers.png" alt="Trousers" class="product-image">
+            <h3>SELECT SIZE</h3>
+
+            <div class="size-container">
+                <div class="size-box" data-size="28">28</div>
+                <div class="size-box" data-size="30">30</div>
+                <div class="size-box" data-size="34">34</div>
+            </div>
+
+            <label for="quantityTrousers">Jumlah:</label>
+            <input type="number" id="quantityTrousers" name="quantity" min="1" value="1">
+            
+            <button class="button add-to-bag" data-product="Trousers">ADD TO BAG</button>
+        </div>
+
+        <div class="product-section">
+            <h2>Our Legacy Boots</h2>
+            <img src="Our Legacy Boots.png" alt="Our Legacy Boots" class="product-image">
+            <h3>SELECT SIZE</h3>
+
+            <div class="size-container">
+                <div class="size-box" data-size="41">41</div>
+                <div class="size-box" data-size="42">42</div>
+                <div class="size-box" data-size="43">43</div>
+            </div>
+
+            <label for="quantityBoots">Jumlah:</label>
+            <input type="number" id="quantityBoots" name="quantity" min="1" value="1">
+            
+            <button class="button add-to-bag" data-product="Our Legacy Boots">ADD TO BAG</button>
+        </div>
+
+        <script>
+            document.getElementById('productForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Produk ditambahkan!');
+            });
+
+            const addToBagButtons = document.querySelectorAll('.add-to-bag');
+            addToBagButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const product = button.getAttribute("data-product");
+                    const selectedSizeBox = document.querySelector(".size-container .size-box.selected");
+                    const size = selectedSizeBox ? selectedSizeBox.getAttribute("data-size") : "belum dipilih";
+                    const quantityInputId = product === "Trousers" ? "quantityTrousers" : "quantityBoots";
+                    const quantity = document.getElementById(quantityInputId).value;
+
+                    if (size === "belum dipilih") {
+                        alert("Silakan pilih ukuran sebelum menambahkan ke keranjang.");
+                    } else {
+                        alert(`Anda telah menambahkan ${quantity} produk ${product} ukuran ${size} ke keranjang!`);
+                    }
+                });
+            });
+
+            const sizeBoxes = document.querySelectorAll('.size-box');
+            sizeBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    sizeBoxes.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
